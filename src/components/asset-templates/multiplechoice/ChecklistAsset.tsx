@@ -14,6 +14,20 @@ interface ChecklistAssetProps {
 export const ChecklistAsset: React.FC<ChecklistAssetProps> = ({ data }) => {
   const cssVars = generateCssVariables(data.brand);
   
+  // Calculate appropriate font size based on content length
+  const getFontSize = (text: string) => {
+    if (text.length > 100) return "text-lg";
+    if (text.length > 50) return "text-xl";
+    return "text-2xl";
+  };
+
+  // Calculate appropriate spacing based on number of options
+  const getOptionSpacing = (optionsCount: number) => {
+    if (optionsCount > 6) return "space-y-2";
+    if (optionsCount > 3) return "space-y-3";
+    return "space-y-4";
+  };
+  
   return (
     <div 
       className="relative overflow-hidden rounded-lg border flex flex-col w-full h-full"
@@ -41,10 +55,12 @@ export const ChecklistAsset: React.FC<ChecklistAssetProps> = ({ data }) => {
       )}
       
       <div className="p-6 flex-grow flex flex-col">
-        <h2 className="text-xl font-semibold mb-6">{data.question}</h2>
+        <h2 className={`font-semibold mb-6 ${getFontSize(data.question)} line-clamp-3`} title={data.question}>
+          {data.question}
+        </h2>
         
-        <div className="flex-grow">
-          <ul className="space-y-3">
+        <div className="flex-grow overflow-y-auto">
+          <ul className={getOptionSpacing(data.options.length)}>
             {data.options.map((option, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div 
@@ -53,7 +69,9 @@ export const ChecklistAsset: React.FC<ChecklistAssetProps> = ({ data }) => {
                 >
                   {option.selected && <Check className="h-3.5 w-3.5 text-white" />}
                 </div>
-                <span className={option.selected ? 'font-medium' : ''}>{option.label}</span>
+                <span className={`${option.selected ? 'font-medium' : ''} line-clamp-2`} title={option.label}>
+                  {option.label}
+                </span>
               </li>
             ))}
           </ul>

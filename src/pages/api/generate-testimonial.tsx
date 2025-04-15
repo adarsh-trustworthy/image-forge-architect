@@ -1,5 +1,6 @@
 
 import React from "react";
+import ReactDOM from "react-dom/client";
 import { TestimonialAssetPayload } from "../../api/asset-generator/types";
 import { AssetRenderer } from "../../api/asset-generator/AssetRenderer";
 import { renderToImage, downloadImage } from "../../api/asset-generator/html-to-image";
@@ -66,7 +67,7 @@ export const generateTestimonialHandler = async (req: TestimonialApiRequest): Pr
     document.body.appendChild(container);
     
     // Use React to render the component into the container
-    const root = document.createRoot(container);
+    const root = ReactDOM.createRoot(container);
     root.render(<AssetRenderer assetType="testimonial" data={testimonialData} />);
     
     // Wait for any async operations to complete (images loading, etc.)
