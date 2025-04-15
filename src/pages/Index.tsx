@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -57,14 +56,15 @@ const Index = () => {
           imageUrl = await generateTestimonialHandler({
             brand: {
               name: "Trustworthy",
-              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=50&fit=crop",
-              primaryColor: "#9b87f5",
+              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=40&fit=crop",
+              primaryColor: "#8B5CF6",
+              backgroundColor: "#ffffff",
               ribbon: {
                 position: 'top-right',
-                color: "#9b87f5"
+                color: "#8B5CF6"
               },
               poweredBy: {
-                name: "Image Forge",
+                name: "Brand Forge",
               }
             },
             user: {
@@ -73,8 +73,8 @@ const Index = () => {
               company: "Global Tech",
               imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
             },
-            question: "What features do you find most helpful?",
-            answer: "The analytics dashboard has completely transformed how we track performance. We can now make data-driven decisions instantly rather than waiting for weekly reports.",
+            question: "What's the biggest impact our platform has had on your workflow?",
+            answer: "The analytics dashboard has completely transformed how we track performance. We can now make data-driven decisions instantly rather than waiting for weekly reports. This has boosted our team's productivity by at least 30%.",
             dimensions: {
               width: 600,
               height: 400
@@ -87,11 +87,11 @@ const Index = () => {
           imageUrl = await generateRatingScaleHandler({
             brand: {
               name: "Trustworthy",
-              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=50&fit=crop",
-              primaryColor: "#ff6915",
+              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=40&fit=crop",
+              primaryColor: "#F97316",
               backgroundColor: "#ffffff",
               poweredBy: {
-                name: "Image Forge",
+                name: "Brand Forge",
               }
             },
             user: {
@@ -100,12 +100,12 @@ const Index = () => {
               company: "Design Studios",
               imageUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop"
             },
-            question: "How would you rate our user interface (0-10)?",
+            question: "How would you rate our user interface?",
             rating: {
               value: 8,
               maxValue: 10,
               format: "numeric",
-              label: "Average Rating"
+              label: "Great"
             },
             displayFormat: "large",
             dimensions: {
@@ -120,10 +120,10 @@ const Index = () => {
           imageUrl = await generateSurveyResultsHandler({
             brand: {
               name: "Trustworthy",
-              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=50&fit=crop",
-              primaryColor: "#ff6915",
+              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=40&fit=crop",
+              primaryColor: "#0EA5E9",
               poweredBy: {
-                name: "Image Forge",
+                name: "Brand Forge",
               }
             },
             user: {
@@ -136,23 +136,23 @@ const Index = () => {
             results: [
               {
                 label: "Easy navigation",
-                value: 75,
-                color: "#ff6915"
+                value: 78,
+                color: "#0EA5E9"
               },
               {
                 label: "Performance speed",
-                value: 60,
-                color: "#ff6915"
+                value: 65,
+                color: "#0EA5E9"
               },
               {
                 label: "Visual design",
                 value: 45,
-                color: "#ff6915"
+                color: "#0EA5E9"
               },
               {
                 label: "Special features",
                 value: 30,
-                color: "#ff6915"
+                color: "#0EA5E9"
               }
             ],
             displayFormat: "percentage",
@@ -172,11 +172,11 @@ const Index = () => {
           imageUrl = await generateChecklistHandler({
             brand: {
               name: "Trustworthy",
-              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=50&fit=crop",
-              primaryColor: "#9b87f5",
+              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=40&fit=crop",
+              primaryColor: "#8B5CF6",
               backgroundColor: "#ffffff",
               poweredBy: {
-                name: "Image Forge",
+                name: "Brand Forge",
               }
             },
             user: {
@@ -188,23 +188,23 @@ const Index = () => {
             question: "Which features have you implemented in your project?",
             options: [
               {
-                label: "User authentication",
+                label: "User authentication & role-based access control",
                 selected: true
               },
               {
-                label: "Data visualization",
+                label: "Interactive data visualization dashboards",
                 selected: true
               },
               {
-                label: "API integration",
+                label: "Third-party API integrations",
                 selected: true
               },
               {
-                label: "Mobile responsiveness",
+                label: "Responsive design for mobile and tablet",
                 selected: false
               },
               {
-                label: "Automated testing",
+                label: "Automated testing and CI/CD pipeline",
                 selected: false
               }
             ],
@@ -220,11 +220,11 @@ const Index = () => {
           imageUrl = await generateQuestionHandler({
             brand: {
               name: "Trustworthy",
-              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=200&h=50&fit=crop",
+              logoUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=40&fit=crop",
               primaryColor: "#0EA5E9",
               backgroundColor: "#ffffff",
               poweredBy: {
-                name: "Image Forge",
+                name: "Brand Forge",
               }
             },
             user: {
