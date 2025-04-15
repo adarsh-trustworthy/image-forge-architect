@@ -8,16 +8,16 @@ interface PoweredByBadgeProps {
 
 export const PoweredByBadge: React.FC<PoweredByBadgeProps> = ({ name, logoUrl }) => {
   return (
-    <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground py-2">
-      <span>Powered By</span>
+    <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground py-2 px-2">
+      <span className="whitespace-nowrap">Powered By</span>
       {logoUrl ? (
         <img 
           src={logoUrl} 
           alt={name} 
-          className="h-4 w-auto" 
+          className="h-4 max-w-[80px] object-contain" 
         />
       ) : (
-        <span className="font-semibold">{name}</span>
+        <span className="font-semibold truncate max-w-[100px]" title={name}>{name}</span>
       )}
     </div>
   );

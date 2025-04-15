@@ -1,5 +1,6 @@
 
 import React from "react";
+import ReactDOM from "react-dom/client";
 import { SurveyResultAssetPayload } from "../../api/asset-generator/types";
 import { AssetRenderer } from "../../api/asset-generator/AssetRenderer";
 import { renderToImage, downloadImage } from "../../api/asset-generator/html-to-image";
@@ -87,7 +88,7 @@ export const generateSurveyResultsHandler = async (req: SurveyResultsApiRequest)
     document.body.appendChild(container);
     
     // Use React to render the component into the container
-    const root = document.createRoot(container);
+    const root = ReactDOM.createRoot(container);
     root.render(<AssetRenderer assetType={assetType} data={surveyResultsData} />);
     
     // Wait for any async operations to complete (images loading, etc.)

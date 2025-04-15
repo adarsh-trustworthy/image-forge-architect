@@ -13,6 +13,30 @@ interface QuestionAssetProps {
 export const QuestionAsset: React.FC<QuestionAssetProps> = ({ data }) => {
   const cssVars = generateCssVariables(data.brand);
   
+  // Calculate appropriate font size based on content length
+  const getQuestionFontSize = (text: string) => {
+    if (text.length > 100) return "text-xl";
+    if (text.length > 50) return "text-2xl";
+    return "text-3xl";
+  };
+  
+  // Calculate answer text size
+  const getAnswerStyles = (text?: string) => {
+    if (!text) return "text-base";
+    if (text.length > 300) return "text-sm max-h-[200px] overflow-y-auto";
+    if (text.length > 150) return "text-base max-h-[200px] overflow-y-auto";
+    return "text-base";
+  };
+
+  // Determine if we need to adjust the media size based on content
+  const getMediaContainerClass = () => {
+    // If we have both question and answer text, make the media smaller
+    if (data.answer && data.answer.length > 100 && data.question.length > 50) {
+      return "mb-4 max-h-[150px]";
+    }
+    return "mb-6";
+  };
+  
   return (
     <div 
       className="relative overflow-hidden rounded-lg border flex flex-col w-full h-full"
@@ -39,16 +63,18 @@ export const QuestionAsset: React.FC<QuestionAssetProps> = ({ data }) => {
         </div>
       )}
       
-      <div className="p-6 flex-grow flex flex-col">
-        <h2 className="text-2xl font-semibold mb-6">{data.question}</h2>
+      <div className="p-6 flex-grow flex flex-col overflow-hidden">
+        <h2 className={`font-semibold mb-4 ${getQuestionFontSize(data.question)} line-clamp-3`} title={data.question}>
+          {data.question}
+        </h2>
         
         {data.media && (
-          <div className="mb-6">
+          <div className={getMediaContainerClass()}>
             {data.media.type === 'image' && (
               <img 
                 src={data.media.url} 
                 alt="Question media" 
-                className="w-full h-auto rounded-md object-cover" 
+                className="w-full h-auto rounded-md object-cover max-h-full" 
               />
             )}
             {data.media.type === 'video' && (
@@ -71,7 +97,9 @@ export const QuestionAsset: React.FC<QuestionAssetProps> = ({ data }) => {
         )}
         
         {data.answer && (
-          <p className="text-base">{data.answer}</p>
+          <div className={`${getAnswerStyles(data.answer)} pr-2`}>
+            <p>{data.answer}</p>
+          </div>
         )}
       </div>
       
